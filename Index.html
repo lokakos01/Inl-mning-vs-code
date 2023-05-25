@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Comment system</title>
+
+<script src="/script.js" defer></script>
+
+<link rel="stylesheet" href="stylesheets/style.css">
+
+
+
+
+<style>
+    body{
+        background-image: url('filmduk.jpg');
+        height: 100vh;
+        background-size: cover;
+        background-position: center;
+    }
+
+
+
+
+</style>
+
+
+
+
+</head>
+
+<body>
+
+    
+
+
+
+
+<header>
+
+
+
+
+<h1>Välkommen till Filmkväll</h1>
+
+
+
+
+</header>
+
+
+
+
+<main>
+
+
+
+
+<p>Här kan du lägga till dina favorit filmer.</p>
+
+
+
+
+
+<h1>Film lista</h1>
+
+
+
+
+<table>
+
+
+
+
+<thead>
+
+<tr>
+
+<th>Namn</th>
+
+<th>Kategori</th>
+
+<th>Kommentar</th>
+
+</tr>
+
+</thead>
+
+<tbody id="comments-table-body">
+
+
+
+
+</tbody>
+
+
+
+
+</table>
+
+
+
+
+
+
+<h2>Lägg till film</h2>
+
+
+
+
+
+
+
+<form id="comment-form" action="/add" method="post">
+
+
+
+
+<!-- form fields go here -->
+
+
+
+
+<label for="namn">Namn:</label>
+
+<input type="text" id="namn-input" name="namn" required>
+
+
+
+
+<label for="kategori">Kategori:</label>
+
+<input type="text" id="kategori-input" name="kategori" required>
+
+
+
+
+
+<label for="Kommentar">Kommentar:</label>
+
+<textarea id="kommentar-input" name="kommentar" required></textarea>
+
+
+
+
+
+<button type="submit">Lägg till</button>
+
+</form>
+
+
+
+
+<div id="comments-container"></div>
+
+
+
+
+<footer>
+
+
+
+
+<p>Created by [Lucas Miocic] in [2023]</p>
+
+
+
+
+</footer>
+
+
+
+
+</main>
+
+
+
+
+
+</html>
