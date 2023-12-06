@@ -1,71 +1,97 @@
+const Commentform = document.getElementById('comment-form');
+
+
+
+
+
+Commentform.addEventListener('submit', (event) => {
+
+    event.preventDefault();
+
+    addComment();
+
+    getComments();
+
+    Commentform.reset();
+
+});
+
+
+
+
 async function addComment() {
 
-    const comments = {
+    let comments = {
 
-      namn: document.getElementById('namn-input').value,
 
-      kategori: document.getElementById('kategori-input').value,
 
-      kommentar: document.getElementById('kommentar-input').value
 
-    };
+    namn : document.getElementById('namn-input').value,
 
- 
+    kategori : document.getElementById('kategori-input').value,
 
-    const resp = await fetch('/add', {
+    comment : document.getElementById('comment-input').value
 
-      method: 'POST',
 
-      headers: { 'Content-Type': 'application/json' },
 
-      body: JSON.stringify(comments),
 
-    });
+    };
 
- 
 
-    const jsonData = await resp.json();
 
-    console.log(jsonData);
 
- 
+       const resp = await fetch('/add', {
 
-    await getComments(); // Använd await för att vänta på att kommentarerna hämtas innan du går vidare
+        method: 'POST',
 
-  }
+        headers: { 'Content-Type': 'application/json' },
 
- 
+        body: JSON.stringify(comments),
 
-  async function getComments() {
+    });
 
-    const response = await fetch('/comments');
+     
 
-    const data = await response.json();
+    const jsonData = await resp.json();
 
- 
+    console.log(jsonData);
 
-    const tableBody = document.getElementById('comments-table-body');
+}
 
-    tableBody.innerHTML = '';
 
- 
 
-    data.forEach(comment => {
 
-      const row = document.createElement('tr');
 
-      row.innerHTML = `
+async function getComments() {
 
-        <td>${comment.namn}</td>
+    const response = await fetch('/comments');
 
-        <td>${comment.kategori}</td>
+    const data = await response.json();
 
-        <td>${comment.kommentar}</td>
+   
 
-      `;
+    const tableBody = document.getElementById('comments-table-body');
 
-      tableBody.appendChild(row);
+    tableBody.innerHTML = '';
 
-    });
+   
 
-  }
+    data.forEach(comment => {
+
+      const row = document.createElement('tr');
+
+      row.innerHTML = `
+
+        <td>${comment.namn}</td>
+
+       <td>${comment.kategori}</td>
+
+       <td>${comment.comment}</td>
+
+      `;
+
+      tableBody.appendChild(row);
+
+    });
+
+  }
